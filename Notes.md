@@ -1,5 +1,5 @@
 # 🚀 Hosting a 3-Tier Web Application on AWS
-- This project is a practical implementation of a 3-tier architecture deployed on AWS.  I followed the **AWS 3-Tier Web Application Workshop** as a learning guide and added my own understanding and setup steps.
+- This project is a practical implementation of a 3-tier architecture deployed on AWS.  I followed the **AWS 3-Tier Web Application Workshop** as a learning guide and documented my own understanding and steps here.
 - See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
 ### Setup :
 - download code fron github :
