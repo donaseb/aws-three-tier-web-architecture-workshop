@@ -18,11 +18,7 @@
 - When adding permissions, include the following AWS managed policies:AmazonSSMManagedInstanceCore,AmazonS3ReadOnlyAccess
 ## Networking and Security:
 - In this section we will be building out the VPC networking components as well as security groups that will add a layer of protection around our EC2 instances, Aurora databases, and Elastic Load Balancers.
-- 
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
+-
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
