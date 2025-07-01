@@ -3,7 +3,7 @@
 - See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
 ### Setup :
 - download code fron github :
-- > To clone the project:
+- To clone the project:
 > ```bash
 > git clone https://github.com/dona-sebastian/clothing-store-3tier-app.git
 > ```
