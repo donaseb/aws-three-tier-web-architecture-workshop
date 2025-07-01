@@ -17,6 +17,7 @@
 - Create IAM EC2 Instance Role : go to IAM and create an EC2 role,and select ec2 as trusted entity
 - When adding permissions, include the following AWS managed policies:AmazonSSMManagedInstanceCore,AmazonS3ReadOnlyAccess
 ## Networking and Security:
+---
 - In this section we will be building out the VPC networking components as well as security groups that will add a layer of protection around our EC2 instances, Aurora databases, and Elastic Load Balancers.
 -
 ## License
