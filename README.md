@@ -25,7 +25,9 @@
 - Create Internet Gateway : for the public subnet to have internet access you need to attach internet gateway
 - Create Nat gateway : for our instances in the app layer private subnet to be able to access the internet they will need to go through a NAT Gateway. For high availability, you’ll deploy one NAT gateway in each of your public subnets.  so create 2 Nat gateways 1 in each availability zones in public subnet.Nat gateway is in public subnets
 - Create route tables: Create a route table for the public subnets,in the edit routes add the internet gateway and also associate the publicsubnets in web tier.create 2nd Route table and in the route add the NAT Gateway in az1 as targetand associate private subnet in az1,create a 3rd one also for the private subnet in az2 and add NAT gateway in Az2.
-- 
+- Create Security Groups :
+  1. SG1-externalLb :this security group allows inbound traffic from outside via HTTP port 80
+  2. sg2-webtier: 
 
 
 -
