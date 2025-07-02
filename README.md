@@ -19,13 +19,9 @@
 ## Networking and Security:
 ---
 - In this section we will be building out the VPC networking components as well as security groups that will add a layer of protection around our EC2 instances, Aurora databases, and Elastic Load Balancers.
-- Create an isolated network with the following components:
-VPC
-Subnets
-Route Tables
-Internet Gateway
-NAT gateway
-Security Groups
+- Create an isolated network with the following components:VPC,Subnets,Route Tables,Internet Gateway,NAT gateway,Security Groups
+- Create Vpc and subnets,after creating vpc 6 subnets are created in two availability zones ,ie 2 public subnets which are 1 in each availability zones and 4 private subnets one in each availability zones.
+- 
 
 -
 ## License
