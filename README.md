@@ -21,7 +21,12 @@
 - In this section we will be building out the VPC networking components as well as security groups that will add a layer of protection around our EC2 instances, Aurora databases, and Elastic Load Balancers.
 - Create an isolated network with the following components:VPC,Subnets,Route Tables,Internet Gateway,NAT gateway,Security Groups
 - Create Vpc and subnets,after creating vpc 6 subnets are created in two availability zones ,ie 2 public subnets which are 1 in each availability zones and 4 private subnets one in each availability zones.
+- ![image](https://github.com/user-attachments/assets/67a0f129-36ee-4685-a290-8402671a62c1)
+- Create Internet Gateway : for the public subnet to have internet access you need to attach internet gateway
+- Create Nat gateway : for our instances in the app layer private subnet to be able to access the internet they will need to go through a NAT Gateway. For high availability, you’ll deploy one NAT gateway in each of your public subnets.  so create 2 Nat gateways 1 in each availability zones in public subnet.Nat gateway is in public subnets
+- Create route tables: Create a route table for the public subnets,in the edit routes add the internet gateway and also associate the publicsubnets in web tier.create 2nd Route table and in the route add the NAT Gateway in az1 as targetand associate private subnet in az1,create a 3rd one also for the private subnet in az2 and add NAT gateway in Az2.
 - 
+
 
 -
 ## License
