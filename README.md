@@ -239,7 +239,81 @@ the  out put of teh above command was ![image](https://github.com/user-attachmen
 -  ![image](https://github.com/user-attachments/assets/f0d1b536-ac58-4def-a20c-3ddba0685ff5)
 
 ## Web Tier Instance Deployment 
--In this section we will deploy an EC2 instance for the web tier and make all necessary software configurations for the NGINX web server and React.js website.
+- In this section we will deploy an EC2 instance for the web tier and make all necessary software configurations for the NGINX web server and React.js website.
+- Update Config File : in the repo we have downloaded update the  application-code/nginx.conf in that replace [INTERNAL-LOADBALANCER-DNS] with your internal load balancer’s DNS entry.
+- Then, upload this file and the application-code/web-tier folder to the s3 bucket.
+- launch webtier instance tehn connect to it
+### Configure Web Instance:
+- We now need to install all of the necessary components needed to run our front-end application. Again, start by installing NVM and node
+ ``` bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.bashrc
+nvm install 16
+nvm use 16
+```
+- Now we need to download our web tier code from our s3 bucket ``` cd ~/
+aws s3 cp s3://BUCKET_NAME/web-tier/ web-tier --recursive ```
+- Navigate to the web-layer folder and create the build folder for the react app so we can serve our code:
+
+  ```
+  bash
+  cd ~/web-tier
+  npm install 16
+  npm run build
+  ``` 
+
+- NGINX can be used for different use cases like load balancing, content caching etc, but we will be using it as a web server that we will configure to serve our application on port 80, as well as help direct our API calls to the internal load balance
+  ```sudo amazon-linux-extras install nginx1 -y ```
+### issue : command not founde error how i fixed it:
+- ``` bash
+  sudo yum install nginx -y
+  sudo systemctl start nginx
+  sudo systemctl enable nginx
+  ```
+- We will now have to configure NGINX. Navigate to the Nginx configuration file with the following commands and list the files in the directory:
+ ```
+  bash
+  cd /etc/nginx
+ls
+  ```
+- You should see an nginx.conf file. We’re going to delete this file and use the one we uploaded to s3. Replace the bucket name in the command below with the one you created for this workshop:
+- also take backup of the nginx.conf file before removing
+``` sudo cp nginx.conf nginx.conf_bkp  ```
+- then remove the nginx .conf file 
+```
+bash
+sudo rm nginx.conf
+sudo aws s3 cp s3://BUCKET_NAME/nginx.conf .
+```
+- Then, restart Nginx with the following command
+  ``` sudo service nginx restart ```
+  ``` sudo nginx service status ```
+  ![image](https://github.com/user-attachments/assets/b17ff1bb-f391-41e3-9197-996ad36d003c)
+
+- To make sure Nginx has permission to access our files execute this command:
+``` chmod -R 755 /home/ec2-user ```
+- And then to make sure the service starts on boot, run this command:
+  ``` sudo chkconfig nginx on ```
+- Now when you plug in the public IP of your web tier instance, you should see your website, which you can find on the Instance details page on the EC2 dashboard. If you have the database connected and working correctly, then you will also see the database working.
+### issue : site cant be reached : will get resolved after creating ASG and when you access it via the lb dns you could access the webapp
+## External Load Balancer and Auto Scaling
+- Select the web tier instance we created and under Actions select Image and templates. Click Create Image.
+- create target group then.
+- Create internet facing external Lb
+- Create Launch Template.
+- Create Auto Scaling group.
+- ![image](https://github.com/user-attachments/assets/4f1bdc16-be3c-4dda-8781-c26ce28d1727)
+- To test if your entire architecture is working, navigate to your external facing loadbalancer, and plug in the DNS name into your browser.
+-![image](https://github.com/user-attachments/assets/015f4ad0-b853-4cb7-a829-e9844174853e)
+- ![image](https://github.com/user-attachments/assets/67f265a7-a440-4ca0-98af-95cc58da6f98)
+- ![image](https://github.com/user-attachments/assets/08ba324e-9e8c-4339-9bec-c4deb95a1e56)
+
+
+
+
+
+ 
+
 
 
 
