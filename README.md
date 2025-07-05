@@ -306,7 +306,7 @@ sudo aws s3 cp s3://BUCKET_NAME/nginx.conf .
 - To test if your entire architecture is working, navigate to your external facing loadbalancer, and plug in the DNS name into your browser.
 -![image](https://github.com/user-attachments/assets/015f4ad0-b853-4cb7-a829-e9844174853e)
 - ![image](https://github.com/user-attachments/assets/67f265a7-a440-4ca0-98af-95cc58da6f98)
-- ![image](https://github.com/user-attachments/assets/08ba324e-9e8c-4339-9bec-c4deb95a1e56)
+
 
 
 
